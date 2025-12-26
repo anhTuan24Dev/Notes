@@ -1,3 +1,4 @@
+import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import { connectDB } from "./config/db.js";
@@ -14,6 +15,7 @@ connectDB();
 
 // Middleware để parse JSON từ request body
 app.use(express.json());
+app.use(cors()); // Cho phép truy cập từ origin khác (CORS)
 
 // Route kiểm tra backend
 app.get("/", (_req, res) => {
